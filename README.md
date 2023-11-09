@@ -66,6 +66,9 @@
   ![Cat2](https://cataas.com/cat?type=square&color=orange)
   ![Cat3](https://cataas.com/cat?type=square&color=green)
 
-![Heart](https://i.imgur.com/RQLAHk3.png)
+<!--- Romantic Note and Photo --->
+  ## 💑 In Love:
+  ![Heart](https://i.imgur.com/RQLAHk3.png)
+  Meet my amazing partner, [Your_Partner_Name](https://link_to_partner_profile)! Together, we create a symphony of love and code.
 
 </div>
