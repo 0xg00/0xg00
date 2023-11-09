@@ -3,10 +3,6 @@
 <div align="center">
 
   # 👨‍💻 [0xg00](https://github.com/0xg00)
-  
-<!--- Romantic Note and Photo --->
-  ## 💑 In Love:
-  ![Heart](https://i.imgur.com/RQLAHk3.png)
 
   🌐 Navigating the binary seas, I am the architect of virtual realms <br>
   🖥️ Mastering the art of code, I sculpt algorithms with keystrokes <br>
@@ -18,6 +14,10 @@
 
   <!--- Animated GIF: Replace 'your_gif_link_here' with the link to your animated GIF --->
   ![Coding GIF](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+<!--- Romantic Note and Photo --->
+  ## 💑 In Love:
+  ![Heart](https://i.imgur.com/RQLAHk3.png)
 
 <!--- Programming & Hacking Tech Arsenal Section --->
 
