@@ -17,7 +17,7 @@
 
 <!--- Programming & Hacking Tech Arsenal Section --->
 
-## 🚀 Ultimate Tech Arsenal:
+## 🚀 Arsenal:
 
 <!--- Programming Languages --->
 ### 💻 Programming Languages:
