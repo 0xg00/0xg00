@@ -3,6 +3,10 @@
 <div align="center">
 
   # 👨‍💻 [0xg00](https://github.com/0xg00)
+  
+<!--- Romantic Note and Photo --->
+  ## 💑 In Love:
+  ![Heart](https://i.imgur.com/RQLAHk3.png)
 
   🌐 Navigating the binary seas, I am the architect of virtual realms <br>
   🖥️ Mastering the art of code, I sculpt algorithms with keystrokes <br>
@@ -65,9 +69,5 @@
   ![Cat1](https://cataas.com/cat?type=square&color=blue)
   ![Cat2](https://cataas.com/cat?type=square&color=orange)
   ![Cat3](https://cataas.com/cat?type=square&color=green)
-
-<!--- Romantic Note and Photo --->
-  ## 💑 In Love:
-  ![Heart](https://i.imgur.com/RQLAHk3.png)
 
 </div>
