@@ -15,10 +15,6 @@
   <!--- Animated GIF: Replace 'your_gif_link_here' with the link to your animated GIF --->
   ![Coding GIF](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
-<!--- Romantic Note and Photo --->
-  ## 💑 In Love:
-  ![Heart](https://i.imgur.com/RQLAHk3.png)
-
 <!--- Programming & Hacking Tech Arsenal Section --->
 
 ## 🚀 Arsenal:
