@@ -4,7 +4,7 @@
 
   # 👨‍💻 [0xg00](https://github.com/0xg00)
 
-  😍 Con dos cojones y pa lante <br>
+  😍 Nana <br>
 
   <!--- Animated GIF: Replace 'your_gif_link_here' with the link to your animated GIF --->
   ![Coding GIF](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
