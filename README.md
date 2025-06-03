@@ -1,67 +1,77 @@
-<!-- Perfil README.md para Unai -->
+<!-- README.md profile for 0xg00 (Unai) -->
 
-<h1 align="center">👾 Unai | Cybersecurity & AI Enthusiast 👾</h1>
-
+<!-- Banner superior estilo hacking -->
 <p align="center">
-  <img src="https://cdn.pixabay.com/photo/2017/01/10/11/04/hacker-1967743_1280.png" alt="hacker" width="150" />
+  <img src="https://raw.githubusercontent.com/0xg00/0xg00/assets/banner-cybersecurity.png" width="80%" alt="Cybersecurity Banner"/>
 </p>
 
+<h1 align="center"><code>0xg00</code></h1>
+<p align="center"><b>Cybersecurity | AI | Programming</b></p>
+
+---
+
+<!-- Descripción corta estilo terminal -->
 <p align="center">
-  <a href="https://github.com/unai">
-    <img src="https://img.shields.io/github/followers/unai?label=Follow&style=social" />
-  </a>
-  <img src="https://img.shields.io/badge/Cybersecurity-Expert-informational?logo=HackTheBox&logoColor=white&color=9cf"/>
-  <img src="https://img.shields.io/badge/AI-Developer-purple?logo=OpenAI&logoColor=white"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Mono&pause=1000&color=00FF00&center=true&vCenter=true&width=435&lines=Cybersecurity+Enthusiast;AI+and+Automation;Linux+%7C+Bash+%7C+Python+%7C+C%2B%2B+%7C+Go+%7C+JS;Always+learning+new+tech" alt="Typing SVG" />
 </p>
 
 ---
 
+## about_me.sh
+
+```bash
+> whoami
+unai@0xg00:~$ # Security enthusiast with a passion for coding and AI
+```
+- 🕶️ Exploring offensive & defensive security
+- 🧠 Building intelligent systems & automation tools
+- 🌐 Linux power user & scripting lover
+- 🛠️ Constantly learning and sharing knowledge
+
+---
+
+## skills.ls
+
+```bash
+Languages:   Python  |  C++  |  Go  |  JavaScript  |  Bash
+Tech:        Linux, Networking, PenTesting, AI, Automation
+Tools:       Wireshark, Nmap, Metasploit, Burp Suite, PyTorch, TensorFlow
+```
+
+---
+
+## toolbox
+
 <p align="center">
-  <b>💻 Estudiante apasionado de la programación, la ciberseguridad y la inteligencia artificial 💻</b>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="32"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" height="32"/>
 </p>
 
 ---
 
-## 🕶️ Sobre mí
-
-- 🛡️ **Apasionado de la ciberseguridad:** Me gusta analizar, investigar y proteger sistemas.  
-- 🤖 **Inteligencia artificial:** Experimento creando modelos y soluciones inteligentes.
-- 💾 **Automatización & Scripting:** Automatizo tareas con Bash y Python.
-- 🌱 **Siempre aprendiendo:** Nuevas tecnologías, lenguajes y herramientas.
-
-## 🚀 Lenguajes y herramientas
+## activity.log
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cpp" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" height="40" alt="go" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash" />
-</p>
-
-## 🛠️ Tecnologías favoritas
-
-- **🕵️‍♂️ Hacking ético**: Kali Linux, Metasploit, Wireshark
-- **🔐 Seguridad ofensiva & defensiva**
-- **🧠 Machine Learning / Deep Learning**: TensorFlow, PyTorch
-- **🔗 Redes, automatización y scripts**
-
-## ✨ Stats y actividad
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=unai&show_icons=true&theme=tokyonight" alt="github stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=unai&theme=tokyonight" alt="streak stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=0xg00&hide=issues&show_icons=true&theme=tokyonight&hide_title=true&card_width=400" alt="0xg00 github stats"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=0xg00&theme=tokyonight" alt="0xg00 streak stats"/>
 </p>
 
 ---
 
-## 📫 ¿Hablamos?
-- **Discord:** tuusuario#1234
-- **Mail:** tu.email@ejemplo.com
-- **LinkedIn:** [Tu LinkedIn](https://www.linkedin.com/in/tuusuario)
+## connect.sh
+
+- **Email:** your.email@example.com  
+- **LinkedIn:** [linkedin.com/in/0xg00](https://linkedin.com/in/0xg00)
+- **TryHackMe:** [0xg00](https://tryhackme.com/p/0xg00)
 
 ---
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=Always+learning;Cybersecurity+enthusiast;AI+dev;Welcome+to+my+profile!&center=true&width=500&height=30">
+<!-- Footer estilo consola oscura -->
+<p align="center" style="color: #00ff00;">
+  <img src="https://raw.githubusercontent.com/0xg00/0xg00/assets/terminal-footer.png" width="60%" alt="terminal footer"/>
 </p>
