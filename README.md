@@ -1,9 +1,6 @@
 <!-- README.md profile for 0xg00 (Unai) -->
 
 <!-- Banner superior estilo hacking -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/0xg00/0xg00/assets/banner-cybersecurity.png" width="80%" alt="Cybersecurity Banner"/>
-</p>
 
 <h1 align="center"><code>0xg00</code></h1>
 <p align="center"><b>Cybersecurity | AI | Programming</b></p>
@@ -71,7 +68,3 @@ Tools:       Wireshark, Nmap, Metasploit, Burp Suite, PyTorch, TensorFlow
 
 ---
 
-<!-- Footer estilo consola oscura -->
-<p align="center" style="color: #00ff00;">
-  <img src="https://raw.githubusercontent.com/0xg00/0xg00/assets/terminal-footer.png" width="60%" alt="terminal footer"/>
-</p>
