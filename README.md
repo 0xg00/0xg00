@@ -62,9 +62,9 @@ Tools:       Wireshark, Nmap, Metasploit, Burp Suite, PyTorch, TensorFlow
 
 ## connect.sh
 
-- **Email:** your.email@example.com  
-- **LinkedIn:** [linkedin.com/in/0xg00](https://linkedin.com/in/0xg00)
+- **Email:** love@ohhim.xyz  
 - **TryHackMe:** [0xg00](https://tryhackme.com/p/0xg00)
+- **Discord:** eldelak6
 
 ---
 
