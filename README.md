@@ -4,7 +4,6 @@
 <p align="center"><b>Cybersecurity | AI | Programming</b></p>
 
 ---
-inal -->
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Mono&pause=1000&color=00FF00&center=true&vCenter=true&width=435&lines=Cybersecurity+Enthusiast;AI+and+Automation;Linux+%7C+Bash+%7C+Python+%7C+C%2B%2B+%7C+Go+%7C+JS;Always+learning+new+tech" alt="Typing SVG" />
 </p>
