@@ -14,7 +14,7 @@
 
 ```bash
 > whoami
-unai@0xg00:~$ # Security enthusiast with a passion for coding and AI
+dev@0xg00:~$ # Security enthusiast with a passion for coding and AI
 ```
 - 🕶️ Exploring offensive & defensive security
 - 🧠 Building intelligent systems & automation tools
