@@ -56,11 +56,4 @@ Tools:       Wireshark, Nmap, Metasploit, Burp Suite, PyTorch, TensorFlow
 
 ---
 
-## connect.sh
-
-- **Email:** love@ohhim.xyz  
-- **TryHackMe:** [0xg00](https://tryhackme.com/p/0xg00)
-- **Discord:** eldelak6
-
----
 
