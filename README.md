@@ -119,7 +119,7 @@ Workflow   : Claude Code · Codex · pipx · tmux · zsh · KDE Plasma
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/0xg00/0xg00/output/github-contribution-grid-snake-dark.svg" alt="snake"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=0xg00&theme=tokyo-night&bg_color=0d1117&color=00ff41&line=00ff41&point=ffffff&area=true&area_color=00ff41&hide_border=true" alt="activity graph"/>
 </p>
 
 ---
