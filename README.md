@@ -1,21 +1,21 @@
 <!--
   GitHub profile · 0xg00
-  Offensive Security · Red Team · Active Directory
+  Offensive Security · Red Team
 -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:020024,100:00ff41&height=180&section=header&text=0xg00&fontSize=72&fontColor=00ff41&fontAlignY=38&desc=Offensive%20Security%20%C2%B7%20Red%20Team%20%C2%B7%20Active%20Directory&descAlignY=62&descSize=18&animation=fadeIn" alt="banner"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:020024,100:00ff41&height=180&section=header&text=0xg00&fontSize=72&fontColor=00ff41&fontAlignY=38&desc=Offensive%20Security%20%C2%B7%20Red%20Team&descAlignY=62&descSize=18&animation=fadeIn" alt="banner"/>
 </p>
 
 <p align="center">
   <a href="https://github.com/0xg00?tab=repositories"><img src="https://img.shields.io/badge/Discipline-Red%20Team-CC0000?style=for-the-badge&logo=hackthebox&logoColor=white"/></a>
-  <a href="https://github.com/0xg00?tab=repositories"><img src="https://img.shields.io/badge/Focus-Active%20Directory-0078D6?style=for-the-badge&logo=microsoft&logoColor=white"/></a>
-  <a href="https://github.com/0xg00?tab=repositories"><img src="https://img.shields.io/badge/Tradecraft-AD%20CS%20%2F%20ESC-9B59B6?style=for-the-badge&logo=keycdn&logoColor=white"/></a>
+  <a href="https://github.com/0xg00?tab=repositories"><img src="https://img.shields.io/badge/Mode-Offensive%20Security-9B59B6?style=for-the-badge&logo=keycdn&logoColor=white"/></a>
+  <a href="https://github.com/0xg00?tab=repositories"><img src="https://img.shields.io/badge/Mindset-Build%20%2B%20Break-F39C12?style=for-the-badge&logo=git&logoColor=white"/></a>
   <img src="https://komarev.com/ghpvc/?username=0xg00&label=profile%20views&color=00ff41&style=for-the-badge"/>
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Mono&pause=900&color=00FF41&center=true&vCenter=true&width=520&lines=Red+Team+%26+Active+Directory;Pentesting+%7C+HackTheBox+%7C+CTF;Offensive+tooling+%26+original+research;Python+%C2%B7+Bash+%C2%B7+Go+%C2%B7+C%2FC%2B%2B+%C2%B7+PowerShell" alt="typing"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Mono&pause=900&color=00FF41&center=true&vCenter=true&width=520&lines=Red+Team+%C2%B7+Offensive+Security;Pentesting+%7C+HackTheBox+%7C+CTF;Original+tooling+%26+research;Python+%C2%B7+Bash+%C2%B7+Go+%C2%B7+C%2FC%2B%2B+%C2%B7+PowerShell" alt="typing"/>
 </p>
 
 ---
@@ -24,15 +24,14 @@
 
 ```bash
 dev@0xg00:~$ cat /etc/identity
-ROLE       = "Offensive Security Researcher"
-FOCUS      = ["Windows / AD", "AD CS abuse", "post-exploitation"]
+ROLE       = "Red Team Operator"
 HOBBIES    = ["breaking things", "writing the tool I wish existed"]
 LOCATION   = "Antártida ❄"
 LANGUAGES  = ["python", "bash", "go", "c", "powershell", "javascript"]
 PHILOSOPHY = "default to no comments, build, ship, sanitize, share"
 ```
 
-- 🎯 Pentesting & red-team ops · Windows / Active Directory focus
+- 🎯 Pentesting & red-team operations across the full kill chain
 - 🧪 Exploit research, lateral movement, privesc, persistence
 - 🐧 Linux power user · automation · CLI everything
 - 📦 Real engagements → distilled, sanitized, reusable tradecraft
@@ -43,10 +42,11 @@ PHILOSOPHY = "default to no comments, build, ship, sanitize, share"
 ## `focus.areas`
 
 ```bash
-AD / Windows  : BloodHound · Kerberos · NTLM · ACL abuse · dMSA / BadSuccessor · ADCS (ESC1-ESC17)
-Web / App     : OWASP · IDOR · auth bypass · API testing
-Post-ex       : PtH · token impersonation · pivoting · shadow credentials · credential theft
-Tradecraft    : phishing · payload crafting · evasion · forensics
+Recon         : OSINT · enumeration · attack surface mapping
+Initial Acc.  : phishing · payload crafting · evasion · web exploitation
+Post-ex       : privesc · lateral movement · pivoting · credential theft · persistence
+Tradecraft    : C2 ops · OPSEC · evasion · forensics-aware tradecraft
+Research      : exploit dev · tooling · tradecraft writeups
 ```
 
 ---
