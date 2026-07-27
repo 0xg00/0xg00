@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
-"""Generate assets/stats.svg counting private contributions too.
+"""Generate assets/stats-{dark,light}.svg — commit tempo, authenticated.
 
-Unauthenticated card services report only public commits (~61 here) while
-the real figure including private repos is ~1700. Requires `gh` authenticated
-with the `repo` scope.
+Shows the real commit volume including private work: the public API reports
+~63 commits for this account while the authenticated figure is ~1,690, the
+rest being private tooling. Deliberately shows NO stars, followers, PR or
+issue counts, and NO streak — those are vanity-adjacent and, for a streak,
+silently rot into a lie the day the refresh job dies.
+
+Requires `gh` authenticated. Commit counts come from GraphQL
+contributionsCollection (public + restrictedContributionsCount), which needs
+no repo-contents access — Metadata-level auth is enough.
 """
 import json
 import pathlib
 import subprocess
 
-W, PAD = 420, 20
-BG, FG, MUTED, BORDER, ACCENT = "#1a1b27", "#c0caf5", "#a9b1d6", "#00ff41", "#70a5fd"
+import tokens as tk
+
 START_YEAR, END_YEAR = 2021, 2026
 
 
@@ -20,55 +26,83 @@ def gh_json(query):
     return json.loads(out.stdout)["data"]
 
 
+def gh(*args):
+    return subprocess.run(["gh", *args], capture_output=True, text=True,
+                          check=True).stdout
+
+
 def collect():
-    commits = prs = issues = 0
+    public = private = 0
     for year in range(START_YEAR, END_YEAR + 1):
         q = ('{viewer{contributionsCollection(from:"%d-01-01T00:00:00Z",'
              'to:"%d-12-31T23:59:59Z"){totalCommitContributions '
-             'totalPullRequestContributions totalIssueContributions '
              'restrictedContributionsCount}}}' % (year, year))
         c = gh_json(q)["viewer"]["contributionsCollection"]
-        # Restricted contributions are private ones the public API hides.
-        commits += c["totalCommitContributions"] + c["restrictedContributionsCount"]
-        prs += c["totalPullRequestContributions"]
-        issues += c["totalIssueContributions"]
+        public += c["totalCommitContributions"]
+        private += c["restrictedContributionsCount"]
 
-    q = ('{viewer{repositories(first:100,ownerAffiliations:OWNER,isFork:false)'
-         '{totalCount nodes{stargazerCount}} followers{totalCount}}}')
-    v = gh_json(q)["viewer"]
+    repos = gh("api", "user/repos", "--paginate", "--jq",
+               ".[] | select(.fork==false) | .private").splitlines()
+    n_repos = len(repos)
+    n_private = sum(1 for r in repos if r.strip() == "true")
+
+    created = gh("api", "user", "--jq", ".created_at").strip()[:4]
+
     return {
-        "Total commits": commits,
-        "Total stars": sum(n["stargazerCount"] for n in v["repositories"]["nodes"]),
-        "Pull requests": prs,
-        "Issues": issues,
-        "Followers": v["followers"]["totalCount"],
+        "public": public, "private": private, "total": public + private,
+        "repos": n_repos, "repos_private": n_private, "since": created,
     }
 
 
-def build(stats):
-    h = PAD + 26 + len(stats) * 22 + PAD
-    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" '
-         f'viewBox="0 0 {W} {h}" font-family="Segoe UI,Ubuntu,sans-serif">',
-         f'<rect x="0.5" y="0.5" width="{W-1}" height="{h-1}" rx="6" fill="{BG}" '
-         f'stroke="{BORDER}" stroke-opacity="0.55"/>',
-         f'<text x="{PAD}" y="{PAD+14}" fill="{BORDER}" font-size="15" '
-         f'font-weight="600">Contribution Stats</text>',
-         f'<text x="{W-PAD}" y="{PAD+14}" fill="{MUTED}" font-size="10" '
-         f'text-anchor="end">public + private</text>']
-    y = PAD + 44
-    for label, value in stats.items():
-        p.append(f'<text x="{PAD}" y="{y}" fill="{FG}" font-size="12">{label}</text>')
-        p.append(f'<text x="{W-PAD}" y="{y}" fill="{ACCENT}" font-size="13" '
-                 f'font-weight="600" text-anchor="end">{value:,}</text>')
-        y += 22
-    p.append('</svg>')
+def build(s, theme):
+    t = tk.THEMES[theme]
+    h = 150
+    p = tk.open_svg(tk.CARD_W, h, "Commit tempo (authenticated)",
+                    f'{s["total"]} total commits, {s["public"]} public and '
+                    f'{s["private"]} in private tooling. {s["repos"]} non-fork '
+                    f'repos, {s["repos_private"]} private. Active since '
+                    f'{s["since"]}.')
+    p.append(tk.defs(t))
+    p += tk.frame(t, tk.CARD_W, h)
+    p.append(tk.header_row(t, "ops.tempo --authenticated"))
+
+    # Big total figure, right-anchored.
+    p.append(f'<text x="{tk.PAD}" y="70" font-size="40" font-weight="700" '
+             f'fill="{t["accent"]}" style="font-variant-numeric:tabular-nums">'
+             f'{s["total"]:,}</text>')
+    p.append(f'<text x="{tk.PAD}" y="88" font-size="11" fill="{t["muted"]}">'
+             f'commits · public + private</text>')
+
+    # Split mini-bar: public vs private.
+    bx, by, bw = tk.PAD, 100, tk.CARD_W - 2 * tk.PAD
+    frac = s["public"] / max(1, s["total"])
+    pub_w = max(2.0, bw * frac)
+    p.append(f'<rect x="{bx}" y="{by}" width="{bw}" height="8" rx="4" '
+             f'fill="{t["accent"]}"/>')
+    p.append(f'<rect x="{bx}" y="{by}" width="{pub_w:.2f}" height="8" rx="4" '
+             f'fill="{t["accent_dim"]}"/>')
+    p.append(f'<text x="{bx}" y="{by+26}" font-size="10.5" '
+             f'fill="{t["muted"]}">'
+             f'<tspan fill="{t["accent_dim"]}">■</tspan> {s["public"]} public'
+             f'   <tspan fill="{t["accent"]}">■</tspan> '
+             f'{s["private"]:,} private</text>')
+    p.append(tk.num(t, tk.CARD_W - tk.PAD, by + 26,
+                    f'{s["repos"]} repos · {s["repos_private"]} private',
+                    size=10.5, color=t["muted"], weight="400"))
+
+    p.append(f'<text x="{tk.PAD}" y="{h-12}" font-size="9.5" '
+             f'fill="{t["muted"]}">non-fork repos · active since '
+             f'{s["since"]}</text>')
+    p.append("</svg>")
     return "\n".join(p)
 
 
 if __name__ == "__main__":
-    stats = collect()
-    out = pathlib.Path(__file__).resolve().parent.parent / "assets" / "stats.svg"
-    out.write_text(build(stats), encoding="utf-8")
-    print(f"wrote {out}")
-    for k, v in stats.items():
-        print(f"  {k:<16} {v:,}")
+    s = collect()
+    out_dir = pathlib.Path(__file__).resolve().parent.parent / "assets"
+    for theme in ("dark", "light"):
+        (out_dir / f"stats-{theme}.svg").write_text(build(s, theme),
+                                                     encoding="utf-8")
+    print("wrote stats-dark.svg + stats-light.svg")
+    for k, v in s.items():
+        print(f"  {k:<14} {v}")
