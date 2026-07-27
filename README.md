@@ -55,14 +55,14 @@ Research      : exploit dev · tooling · tradecraft writeups
 
 > Generic technique notes & tooling. Built from real engagements, **fully sanitized** (no targets, no flags).
 
-| Repo | Qué es | Último commit |
+| Repo | What it is | Last commit |
 |:--|:--|:--|
 | **[adcs-ess-enroll](https://github.com/0xg00/adcs-ess-enroll)** | Pure-PowerShell AD CS ESS enrollment | ![](https://img.shields.io/github/last-commit/0xg00/adcs-ess-enroll?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
-| **[badsuccessor-dmsa](https://github.com/0xg00/badsuccessor-dmsa)** | Abuso de dMSA (Delegated Managed Service Accounts) en Windows Server 2025 | ![](https://img.shields.io/github/last-commit/0xg00/badsuccessor-dmsa?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
-| **[targeted-asrep-roasting](https://github.com/0xg00/targeted-asrep-roasting)** | AS-REP roasting dirigido vía GenericWrite (set DONT_REQ_PREAUTH) | ![](https://img.shields.io/github/last-commit/0xg00/targeted-asrep-roasting?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
-| **[malicious-vsix-foothold](https://github.com/0xg00/malicious-vsix-foothold)** | Extensión VS Code (.vsix) maliciosa como foothold de supply chain | ![](https://img.shields.io/github/last-commit/0xg00/malicious-vsix-foothold?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
-| **[ad-pentest-cheatsheet](https://github.com/0xg00/ad-pentest-cheatsheet)** | Notas de campo de pentest AD para DCs modernos (Server 2022/2025) | ![](https://img.shields.io/github/last-commit/0xg00/ad-pentest-cheatsheet?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
-| **[htb-writeups](https://github.com/0xg00/htb-writeups)** | Writeups de máquinas retiradas de HackTheBox | ![](https://img.shields.io/github/last-commit/0xg00/htb-writeups?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
+| **[badsuccessor-dmsa](https://github.com/0xg00/badsuccessor-dmsa)** | Abusing dMSA (Delegated Managed Service Accounts) on Windows Server 2025 | ![](https://img.shields.io/github/last-commit/0xg00/badsuccessor-dmsa?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
+| **[targeted-asrep-roasting](https://github.com/0xg00/targeted-asrep-roasting)** | Targeted AS-REP roasting via GenericWrite (set DONT_REQ_PREAUTH) | ![](https://img.shields.io/github/last-commit/0xg00/targeted-asrep-roasting?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
+| **[malicious-vsix-foothold](https://github.com/0xg00/malicious-vsix-foothold)** | Malicious VS Code extension (.vsix) as a supply-chain foothold | ![](https://img.shields.io/github/last-commit/0xg00/malicious-vsix-foothold?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
+| **[ad-pentest-cheatsheet](https://github.com/0xg00/ad-pentest-cheatsheet)** | AD pentest field notes for hardened modern DCs (Server 2022/2025) | ![](https://img.shields.io/github/last-commit/0xg00/ad-pentest-cheatsheet?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
+| **[htb-writeups](https://github.com/0xg00/htb-writeups)** | Writeups for retired HackTheBox machines | ![](https://img.shields.io/github/last-commit/0xg00/htb-writeups?style=flat-square&color=00ff41&labelColor=0d1117&label=) |
 
 ---
 
@@ -101,13 +101,12 @@ Workflow   : Claude Code · Codex · pipx · tmux · zsh · KDE Plasma
 </p>
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=0xg00&theme=tokyonight" alt="repos per language"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=0xg00&theme=tokyonight" alt="most commit language"/>
+  <img src="./assets/top-langs.svg" alt="most used languages"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=0xg00&theme=tokyonight&utcOffset=2" alt="productive time"/>
 </p>
 
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=0xg00&theme=tokyonight" alt="stats"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=0xg00&theme=tokyonight&utcOffset=2" alt="productive time"/>
 </p>
 
 <p align="center">
