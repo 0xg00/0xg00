@@ -1,0 +1,118 @@
+name: refresh-cards
+
+# Regenerates the self-hosted profile cards from the AUTHENTICATED GitHub API
+# so they keep counting private work. Read is done by a fine-grained PAT
+# (Metadata: Read-only, All repositories) stored as the CARDS_PAT secret; the
+# push-back uses the ephemeral GITHUB_TOKEN, so the long-lived PAT never gets
+# write access and can never read source code.
+#
+# Set up the secret once:
+#   gh secret set CARDS_PAT   (paste a fine-grained PAT, Metadata: Read-only)
+
+on:
+  schedule:
+    # Weekly, Monday 05:17 UTC. Off the top of the hour on purpose — GitHub
+    # delays cron hardest at :00. Weekly (not daily) keeps churn low; the
+    # pre-push git hook is what keeps numbers fresh on every push.
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [0xg00]
+    paths:
+      - 'scripts/gen_header.py'
+      - 'scripts/gen_langs.py'
+      - 'scripts/gen_stats.py'
+      - 'scripts/tokens.py'
+      - '.github/workflows/refresh-cards.yml'
+
+# Default-deny. Only the push-back needs write, via GITHUB_TOKEN — not the PAT.
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-cards
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 0xg00
+          fetch-depth: 1
+          persist-credentials: true   # leaves GITHUB_TOKEN for the push step
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      # Fail LOUD on an expired/revoked/under-scoped PAT instead of silently
+      # regenerating cards that show only public data.
+      - name: Preflight - validate PAT can see private repos
+        env:
+          GH_TOKEN: ${{ secrets.CARDS_PAT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::error title=Missing secret::CARDS_PAT is not set."; exit 1
+          fi
+          if ! gh api user --jq '.login' > /dev/null 2>&1; then
+            echo "::error title=PAT invalid::CARDS_PAT is expired, revoked, or malformed."; exit 1
+          fi
+          PRIV=$(gh api "user/repos?affiliation=owner&visibility=private&per_page=100" \
+                   --paginate --jq 'length' | awk '{s+=$1} END {print s+0}')
+          echo "private repos visible: ${PRIV}"
+          if [ "${PRIV}" -lt 1 ]; then
+            echo "::error title=PAT under-scoped::Token sees 0 private repos. Refusing to publish public-only cards."; exit 1
+          fi
+          RESTRICTED=$(gh api graphql -f query='
+            query { viewer { contributionsCollection { restrictedContributionsCount } } }
+          ' --jq '.data.viewer.contributionsCollection.restrictedContributionsCount')
+          echo "restricted contributions: ${RESTRICTED}"
+          if [ "${RESTRICTED}" -lt 1 ]; then
+            echo "::error title=Private contributions hidden::restrictedContributionsCount is 0. Check Settings > Profile > 'Include private contributions'."; exit 1
+          fi
+
+      - name: Generate cards
+        env:
+          # gh prefers GH_TOKEN over GITHUB_TOKEN, so the read-only PAT wins for
+          # API calls without contaminating git.
+          GH_TOKEN: ${{ secrets.CARDS_PAT }}
+        run: |
+          set -euo pipefail
+          python scripts/gen_header.py
+          python scripts/gen_langs.py
+          python scripts/gen_stats.py
+
+      - name: Sanity-check generated SVGs
+        run: |
+          set -euo pipefail
+          for f in assets/header-dark.svg assets/header-light.svg \
+                   assets/lang-dark.svg assets/lang-light.svg \
+                   assets/stats-dark.svg assets/stats-light.svg; do
+            test -s "$f" || { echo "::error::$f missing or empty"; exit 1; }
+            head -c 200 "$f" | grep -q '<svg' || { echo "::error::$f is not an SVG"; exit 1; }
+          done
+
+      # Commit ONLY on real change. Stage first, then `git diff --cached
+      # --quiet` so a brand-new untracked SVG is also detected.
+      - name: Commit and push if changed
+        run: |
+          set -euo pipefail
+          # Bot identity: these commits do NOT land on the contribution graph.
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/header-dark.svg assets/header-light.svg \
+                     assets/lang-dark.svg assets/lang-light.svg \
+                     assets/stats-dark.svg assets/stats-light.svg
+          if git diff --cached --quiet; then
+            echo "no visual change; nothing to commit"; exit 0
+          fi
+          git commit -m 'chore(assets): refresh generated cards [skip ci]'
+          git pull --rebase --autostash origin 0xg00
+          git push origin HEAD:0xg00
