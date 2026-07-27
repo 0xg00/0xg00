@@ -101,7 +101,7 @@ Workflow   : Claude Code · Codex · pipx · tmux · zsh · KDE Plasma
 </p>
 
 <p align="center">
-  <img src="./assets/top-langs.svg" alt="most used languages"/>
+  <img src="https://raw.githubusercontent.com/0xg00/0xg00/0xg00/assets/top-langs.svg" alt="most used languages"/>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=0xg00&theme=tokyonight&utcOffset=2" alt="productive time"/>
 </p>
 
