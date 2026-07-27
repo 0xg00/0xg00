@@ -1,0 +1,10 @@
+# Force LF on everything that runs in a Linux CI runner or as a git hook.
+# CRLF in a workflow's `run:` block or a shell script injects \r and breaks bash.
+*.sh        text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.py        text eol=lf
+*.svg       text eol=lf
+*.md        text eol=lf
+hooks/pre-push text eol=lf
+scripts/hooks/pre-push text eol=lf
