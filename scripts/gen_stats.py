@@ -38,7 +38,6 @@ def collect():
     v = gh_json(q)["viewer"]
     return {
         "Total commits": commits,
-        "Total repos": v["repositories"]["totalCount"],
         "Total stars": sum(n["stargazerCount"] for n in v["repositories"]["nodes"]),
         "Pull requests": prs,
         "Issues": issues,
