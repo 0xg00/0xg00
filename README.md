@@ -106,7 +106,7 @@ Workflow   : Claude Code · Codex · pipx · tmux · zsh · KDE Plasma
 </p>
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=0xg00&theme=tokyonight" alt="stats"/>
+  <img src="https://raw.githubusercontent.com/0xg00/0xg00/0xg00/assets/stats.svg" alt="contribution stats"/>
 </p>
 
 <p align="center">
